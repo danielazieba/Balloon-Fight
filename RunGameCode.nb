@@ -1,0 +1,400 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     18177,        392]
+NotebookOptionsPosition[     17731,        372]
+NotebookOutlinePosition[     18086,        388]
+CellTagsIndexPosition[     18043,        385]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "generates", " ", "a", " ", "main", " ", "menu", " ", "where", " ", 
+    "various", " ", "game", " ", "modes", " ", "can", " ", "be", " ", 
+    "selected"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mainMenu", "=", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{
+       RowBox[{"{", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"FontSize", "\[Rule]", "100"}], ",", 
+           RowBox[{"FontFamily", "->", "\"\<Cooper Black\>\""}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+             RowBox[{"Text", "[", 
+              RowBox[{"\"\<BALLOON FIGHT\>\"", ",", 
+               RowBox[{"{", 
+                RowBox[{"1", ",", "2"}], "}"}]}], "]"}], ",", "Bold", ",", 
+             "Orange"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Exit Game\>\"", ",", 
+                RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", ",", 
+                RowBox[{
+                "FontFamily", "\[Rule]", 
+                 "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+              RowBox[{"DialogReturn", "[", "]"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+              RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1.5"}], "}"}]}], "]"}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<1 Player\>\"", ",", 
+                RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", ",", 
+                RowBox[{
+                "FontFamily", "\[Rule]", 
+                 "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+              RowBox[{"CreateDocument", "[", 
+               RowBox[{
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Top Score:\>\"", 
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"Max", "[", "topScoresList", "]"}], "]"}]}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], "*)"}], 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "score", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"lifeGraphics", "[", 
+                    RowBox[{"Dynamic", "[", "playerLives", "]"}], "]"}], 
+                    "]"}], ",", 
+                   RowBox[{"generateGame", "[", 
+                    RowBox[{"1", ",", "testPlayer", ",", "testEnemy"}], "]"}],
+                    ",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Exit Game\>\"", ",", 
+                    RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                    RowBox[{"DialogReturn", "[", "]"}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+                    RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}]}], 
+                  "}"}], "]"}], ",", 
+                RowBox[{"Background", "\[Rule]", 
+                 RowBox[{"GrayLevel", "[", "0.18", "]"}]}], ",", 
+                RowBox[{"WindowSize", "\[Rule]", "Full"}]}], "]"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+              RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1.8"}], "}"}]}], "]"}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<2 Player\>\"", ",", 
+                RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", ",", 
+                RowBox[{
+                "FontFamily", "\[Rule]", 
+                 "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{"CreateDocument", "[", 
+               RowBox[{
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{"(*", 
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"\"\<Top Score:\>\"", 
+                    RowBox[{"Dynamic", "[", 
+                    RowBox[{"Max", "[", "topScoresList", "]"}], "]"}]}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], "*)"}], 
+                  RowBox[{
+                   RowBox[{"Row", "[", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "player1Score", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Spacer", "[", "1050", "]"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "player2Score", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}]}], "}"}], 
+                    "]"}], ",", 
+                   RowBox[{"Dynamic", "[", 
+                    RowBox[{"lifeGraphics", "[", 
+                    RowBox[{"Dynamic", "[", "playerLives", "]"}], "]"}], 
+                    "]"}], ",", 
+                   RowBox[{
+                    RowBox[{"player1Score", "=", "0"}], ";", 
+                    RowBox[{"player2Score", "=", "0"}], ";", 
+                    RowBox[{"done", "=", "False"}], ";", " ", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"!", "done"}], ",", 
+                    RowBox[{"generateGameMode2", "[", 
+                    RowBox[{"1", ",", "testPlayer", ",", " ", "testEnemy"}], 
+                    "]"}]}], "]"}]}], ",", 
+                   RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"done", "==", "True"}], ",", 
+                    RowBox[{"DialogReturn", "[", "]"}]}], "]"}], ";"}], ",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Exit Game\>\"", ",", 
+                    RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                    RowBox[{"DialogReturn", "[", "]"}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+                    RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}]}], 
+                  "}"}], "]"}], ",", 
+                RowBox[{"Background", "\[Rule]", 
+                 RowBox[{"GrayLevel", "[", "0.18", "]"}]}], ",", 
+                RowBox[{"WindowSize", "\[Rule]", "Full"}]}], "]"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+              RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1.7"}], "}"}]}], "]"}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"{", 
+          RowBox[{"Inset", "[", 
+           RowBox[{
+            RowBox[{"Button", "[", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Balloon Trip\>\"", ",", 
+                RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", ",", 
+                RowBox[{
+                "FontFamily", "\[Rule]", 
+                 "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+              RowBox[{"CreateDocument", "[", 
+               RowBox[{
+                RowBox[{"Column", "[", 
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Style", "[", 
+                    RowBox[{
+                    RowBox[{"Dynamic", "[", "tripScore", "]"}], ",", 
+                    RowBox[{"FontSize", "\[Rule]", "30"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                   RowBox[{"generateTrip", "[", "]"}], ",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{
+                    RowBox[{"Style", "[", 
+                    RowBox[{"\"\<Exit Game\>\"", ",", 
+                    RowBox[{"FontSize", "\[Rule]", "20"}], ",", 
+                    RowBox[{"FontWeight", "\[Rule]", "Bold"}], ",", "White", 
+                    ",", 
+                    RowBox[{
+                    "FontFamily", "\[Rule]", 
+                    "\"\<Copperplate Gothic Bold\>\""}]}], "]"}], ",", 
+                    RowBox[{"DialogReturn", "[", "]"}], ",", 
+                    RowBox[{"ImageSize", "\[Rule]", 
+                    RowBox[{"{", 
+                    RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+                    RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}]}], 
+                  "}"}], "]"}], ",", 
+                RowBox[{"Background", "\[Rule]", 
+                 RowBox[{"GrayLevel", "[", "0.18", "]"}]}], ",", 
+                RowBox[{"WindowSize", "\[Rule]", "Full"}]}], "]"}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{"350", ",", "50"}], "}"}]}], ",", 
+              RowBox[{"Background", "\[Rule]", "Black"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"1", ",", "1.6"}], "}"}]}], "]"}], "}"}]}], 
+        "\[IndentingNewLine]", "}"}], ",", 
+       RowBox[{"ImageSize", "\[Rule]", "1300"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"CreateWindow", "[", 
+    RowBox[{"DialogNotebook", "[", 
+     RowBox[{
+      RowBox[{"{", "mainMenu", "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Background", "\[Rule]", "Black"}], ",", 
+        RowBox[{"WindowMargins", "\[Rule]", "Automatic"}], ",", 
+        RowBox[{"WindowSize", "\[Rule]", "Full"}], ",", 
+        RowBox[{"TextAlignment", "\[Rule]", "Center"}]}], "}"}]}], "]"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.7027310706798615`*^9, {3.702731172065223*^9, 3.702731187997313*^9}, {
+   3.702731583416225*^9, 3.7027315850977864`*^9}, 3.7027321965413485`*^9, 
+   3.702820323362505*^9, {3.7028216697456393`*^9, 3.702821670077548*^9}, {
+   3.7028217080640774`*^9, 3.7028217205577497`*^9}, {3.702821752626092*^9, 
+   3.7028218346388597`*^9}, 3.7028219194572253`*^9, {3.7028363937522793`*^9, 
+   3.702836400929843*^9}, 3.7028391919190187`*^9, {3.702945268537732*^9, 
+   3.7029453339921923`*^9}, 3.7029455625144043`*^9, {3.702945593051811*^9, 
+   3.7029456010702295`*^9}, {3.7029456353957586`*^9, 
+   3.7029456604204993`*^9}, {3.70294572779655*^9, 3.702945751596012*^9}, {
+   3.7029459491094484`*^9, 3.702945982976799*^9}, {3.702946129125515*^9, 
+   3.702946130184367*^9}, {3.70294620525554*^9, 3.7029462370874367`*^9}, {
+   3.70294630394992*^9, 3.702946329256381*^9}, {3.7029467867029696`*^9, 
+   3.7029467967366977`*^9}, {3.70294702949876*^9, 3.702947045802503*^9}, {
+   3.7029473884347634`*^9, 3.7029474360088224`*^9}, {3.7029485570379877`*^9, 
+   3.702948603907235*^9}, 3.7029487250233126`*^9, {3.7029488945783*^9, 
+   3.7029489259648848`*^9}, {3.7029489799966335`*^9, 3.702949013459654*^9}, {
+   3.703007074278165*^9, 3.703007074965641*^9}}],
+
+Cell[BoxData[
+ TemplateBox[{FrontEndObject[
+    LinkObject["vtutm_shm", 3, 1]],15,
+   "FrontEndObject[LinkObject[\"vtutm_shm\", 3, 1]]","15","15"},
+  "NotebookObjectUnsaved"]], "Output",
+ CellChangeTimes->{
+  3.7027310712416177`*^9, 3.7027311906849527`*^9, 3.702731266685187*^9, 
+   3.702731586106481*^9, 3.7027318630355196`*^9, 3.7027320832796416`*^9, {
+   3.7027321864985094`*^9, 3.7027321976302605`*^9}, 3.702744044483261*^9, 
+   3.7027441633089323`*^9, 3.702744437990503*^9, 3.7027451549138784`*^9, 
+   3.7027453690870113`*^9, 3.7027456423300433`*^9, 3.7027458895071125`*^9, 
+   3.702745930138457*^9, 3.702745978457288*^9, 3.702746066360895*^9, 
+   3.70274613806096*^9, 3.7027463659017506`*^9, 3.7027467895343113`*^9, 
+   3.702746824797588*^9, 3.70274704472254*^9, 3.702761005876583*^9, 
+   3.7027613488134604`*^9, 3.7027616855078382`*^9, 3.7027617304556885`*^9, 
+   3.7027618255101385`*^9, 3.702761903231374*^9, 3.702761945345812*^9, 
+   3.702762012160967*^9, 3.7027623019419727`*^9, 3.7027625828862543`*^9, 
+   3.702762860438034*^9, 3.702762931589901*^9, 3.7027630250591717`*^9, 
+   3.7027632057283792`*^9, 3.7027640889277253`*^9, 3.702764394676118*^9, 
+   3.702764637547453*^9, 3.702764701430286*^9, 3.702764971068293*^9, 
+   3.702768346463212*^9, 3.7028175119146833`*^9, 3.70281862029962*^9, 
+   3.702819825652402*^9, 3.7028200859682913`*^9, 3.702820256360368*^9, 
+   3.7028203260867605`*^9, 3.7028217243960485`*^9, {3.702821792374067*^9, 
+   3.702821835471119*^9}, 3.7028219241904364`*^9, 3.702836402493469*^9, 
+   3.702836524293213*^9, 3.7028368008720665`*^9, {3.7028391788617334`*^9, 
+   3.702839199977835*^9}, 3.7028392800246086`*^9, 3.7028394538755293`*^9, 
+   3.702914183613871*^9, 3.7029456731056895`*^9, 3.7029457286608176`*^9, 
+   3.702945770562561*^9, {3.7029459589135947`*^9, 3.702945984512864*^9}, 
+   3.702946131235169*^9, 3.7029463478700256`*^9, 3.7029464235583353`*^9, 
+   3.702946690601652*^9, {3.702946788651128*^9, 3.7029467978065724`*^9}, 
+   3.702947047385741*^9, {3.702947391095337*^9, 3.7029474032292414`*^9}, 
+   3.702947437337901*^9, {3.70294857193497*^9, 3.7029486047171626`*^9}, {
+   3.7029489019960184`*^9, 3.7029489265013475`*^9}, 3.7029489824535036`*^9, 
+   3.7029490142814674`*^9, 3.702950477339507*^9, 3.702952228725152*^9, 
+   3.7029554547185507`*^9, 3.7030070061449537`*^9, 3.703007088681988*^9, 
+   3.703007187380549*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7029483259188013`*^9, 3.7029483266256847`*^9}, 
+   3.702949112551216*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.702817581392496*^9, 3.7028175834354925`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.702764154218234*^9, 3.702764155222804*^9}, {
+  3.7027643478093452`*^9, 3.7027643488433027`*^9}}]
+},
+WindowSize->{1291, 812},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 14399, 299, 556, "Input"],
+Cell[14982, 323, 2363, 35, 41, "Output"]
+}, Open  ]],
+Cell[17360, 361, 122, 2, 28, "Input"],
+Cell[17485, 365, 94, 1, 28, "Input"],
+Cell[17582, 368, 145, 2, 62, "Input"]
+}
+]
+*)
+

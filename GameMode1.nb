@@ -1,0 +1,2769 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    119642,       2760]
+NotebookOptionsPosition[    117847,       2703]
+NotebookOutlinePosition[    118201,       2719]
+CellTagsIndexPosition[    118158,       2716]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Daniela Zieba and Bronson McQueen
+Balloon Fight
+1-Player Mode\
+\>", "Title",
+ CellChangeTimes->{{3.702951465767612*^9, 3.702951482252631*^9}}],
+
+Cell[CellGroupData[{
+
+Cell["Map-related functions", "Subchapter",
+ CellChangeTimes->{{3.702951506302116*^9, 3.7029515187915087`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "specified", " ", "map", " ", "file", " ", "from", " ", 
+     "maps", " ", "1"}], "-", 
+    RowBox[{"12", " ", "in", " ", "a", " ", "table", " ", "format"}]}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"mapChosen", "[", "map_", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"directory", ",", "mapLst"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"directory", "=", " ", 
+        RowBox[{"ToString", "[", 
+         RowBox[{"NotebookDirectory", "[", "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"mapLst", " ", "=", " ", 
+        RowBox[{"Import", "[", 
+         RowBox[{
+          RowBox[{"StringExpression", "[", 
+           RowBox[{
+           "directory", ",", " ", "\"\<Maps/\>\"", " ", ",", "\"\<Map\>\"", 
+            ",", 
+            RowBox[{"ToString", "[", "map", "]"}], ",", " ", "\"\<.txt\>\""}],
+            "]"}], ",", " ", "\"\<Table\>\""}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "mapLst", "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{
+  3.7029514852285013`*^9, 3.702951527879077*^9, {3.702951737917719*^9, 
+   3.7029517419902763`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "returns", " ", "graphic", " ", "representation", " ", "of", " ", 
+    "specified", " ", "map"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"graphicMap", "[", "map_", "]"}], " ", ":=", " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Return", "[", 
+    RowBox[{"Raster", "[", 
+     RowBox[{
+      RowBox[{"Reverse", "[", 
+       RowBox[{"mapChosen", "[", "map", "]"}], "]"}], ",", 
+      RowBox[{"ColorFunction", "\[Rule]", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"Switch", "[", 
+          RowBox[{
+          "#", ",", "\"\<G\>\"", ",", "Green", ",", "\"\<=\>\"", ",", "Green",
+            ",", "\"\<W\>\"", ",", "Blue", ",", "\"\<#\>\"", ",", "Black", 
+           ",", "\"\<P\>\"", ",", "Red", ",", "\"\<L\>\"", ",", "Brown"}], 
+          "]"}], "&"}], ")"}]}]}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702951530221324*^9, 3.702951539821933*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"map1", "=", 
+     RowBox[{"graphicMap", "[", "1", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map2", "=", 
+     RowBox[{"graphicMap", "[", "2", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map3", "=", 
+     RowBox[{"graphicMap", "[", "3", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map4", "=", 
+     RowBox[{"graphicMap", "[", "4", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map5", "=", 
+     RowBox[{"graphicMap", "[", "5", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map6", "=", 
+     RowBox[{"graphicMap", "[", "6", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map7", "=", 
+     RowBox[{"graphicMap", "[", "7", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map8", "=", 
+     RowBox[{"graphicMap", "[", "8", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map9", "=", 
+     RowBox[{"graphicMap", "[", "9", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map10", "=", 
+     RowBox[{"graphicMap", "[", "10", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map11", "=", 
+     RowBox[{"graphicMap", "[", "11", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"map12", "=", 
+     RowBox[{"graphicMap", "[", "12", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029515414571943`*^9, 3.702951549377347*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "Creates", " ", "a", " ", "simple", " ", "graphic", " ", "display", " ", 
+    "of", " ", "the", " ", "inputted", " ", "level"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"mapFlyerEnemy", "[", 
+    RowBox[{
+    "map_", ",", "xLoc_", ",", "yLoc_", ",", " ", "xELoc_", ",", " ", 
+     "yELoc_", ",", " ", "hasCollided_"}], "]"}], ":=", 
+   RowBox[{"Switch", "[", 
+    RowBox[{
+    "map", ",", "\[IndentingNewLine]", "1", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map1", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "2", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map4", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "3", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map3", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "4", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map4", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "5", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map5", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "6", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map6", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "7", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map7", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "8", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map8", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "9", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map9", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "10", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map10", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "11", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map11", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "12", ",", "\[IndentingNewLine]", 
+     RowBox[{"Return", "[", 
+      RowBox[{"Graphics", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"map12", ",", "Purple", ",", 
+          RowBox[{"Rectangle", "[", 
+           RowBox[{"{", 
+            RowBox[{"xLoc", ",", "yLoc"}], "}"}], "]"}], ",", " ", "Pink", 
+          ",", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"hasCollided", " ", "\[Equal]", " ", "False"}], ",", 
+            RowBox[{"Rectangle", "[", 
+             RowBox[{"{", 
+              RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], "]"}]}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{3.702951550545319*^9, 3.702951633360475*^9}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.702951635708128*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Collision/boundary-related functions", "Subchapter",
+ CellChangeTimes->{{3.7029516850373096`*^9, 3.7029516991750393`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "saerches", " ", "through", " ", "specified", " ", "map", " ", "to", " ", 
+    "create", " ", "a", " ", "list", " ", "of", " ", "points", " ", 
+    "representing", " ", "the", " ", "lower", " ", "left", " ", "corner", " ",
+     "of", " ", "every", " ", "1", " ", "x", " ", "1", " ", "platform", " ", 
+    "block"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"collisionsList", "[", "map_", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"i", ",", " ", "j", ",", " ", 
+       RowBox[{"currMap", " ", "=", " ", 
+        RowBox[{"mapChosen", "[", "map", "]"}]}], ",", " ", 
+       RowBox[{"platforms", " ", "=", " ", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "currMap", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", " ", "=", " ", "1"}], ",", " ", 
+          RowBox[{"j", " ", "\[LessEqual]", " ", 
+           RowBox[{"Length", "[", 
+            RowBox[{"currMap", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "]"}]}], ",", " ", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"currMap", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], " ", "\[Equal]", " ", 
+              "\"\<=\>\""}], " ", "||", " ", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"currMap", "[", 
+                RowBox[{"[", "i", "]"}], "]"}], "[", 
+               RowBox[{"[", "j", "]"}], "]"}], " ", "\[Equal]", " ", 
+              "\"\<G\>\""}]}], " ", ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"AppendTo", "[", 
+              RowBox[{"platforms", ",", " ", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"j", "  ", "-", " ", "1"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"Length", "[", "currMap", "]"}], " ", "-", " ", 
+                  "i"}]}], " ", "}"}]}], "]"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "platforms", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702982516846349*^9, 3.702982545713575*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "true", " ", "if", " ", "not", " ", "in", " ", 
+     "platforms"}], ",", " ", 
+    RowBox[{"false", " ", "otherwise"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isNotInPlatforms", "[", 
+    RowBox[{"plts_", ",", " ", "xLoc_", ",", " ", "yLoc_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+      "i", ",", " ", "\[IndentingNewLine]", "cx", ",", "\[IndentingNewLine]", 
+       "cy", ",", "\[IndentingNewLine]", 
+       RowBox[{"yes", " ", "=", " ", "True"}]}], "\[IndentingNewLine]", "}"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "plts", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"cy", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}], " ", "&&", 
+              " ", 
+              RowBox[{"yLoc", " ", "<=", " ", 
+               RowBox[{"cy", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"xLoc", " ", "-", " ", "cx"}], "]"}], " ", 
+                "\[LessEqual]", " ", "1"}], ")"}]}], ")"}], " ", "||", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"cy", "\[GreaterEqual]", " ", "yLoc"}], "&&", 
+              RowBox[{"cy", "\[LessEqual]", " ", 
+               RowBox[{"yLoc", "+", "1"}]}], "&&", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"cx", "-", "xLoc"}], "]"}], "\[LessEqual]", " ", 
+                "1"}], ")"}]}], ")"}]}], " ", ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"yes", " ", "=", " ", "False"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "yes", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029517014759197`*^9, 3.7029517018261433`*^9}, {
+  3.702951797040163*^9, 3.702951808833713*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"same", " ", "function", " ", "as", " ", "isNotInPlatforms"}], 
+    ",", " ", 
+    RowBox[{
+    "but", " ", "if", " ", "flyer", " ", "is", " ", "on", " ", "left", " ", 
+     "edge"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isNotInPlatformsLeft", "[", 
+    RowBox[{"plts_", ",", " ", "xLoc_", ",", " ", "yLoc_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+      "i", ",", " ", "\[IndentingNewLine]", "cx", ",", "\[IndentingNewLine]", 
+       "cy", ",", "\[IndentingNewLine]", 
+       RowBox[{"yes", " ", "=", " ", "True"}]}], "\[IndentingNewLine]", "}"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "plts", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"cy", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}], " ", "&&", 
+              " ", 
+              RowBox[{"yLoc", " ", "<=", " ", 
+               RowBox[{"cy", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"xLoc", " ", "-", " ", "cx"}], "]"}], " ", 
+                "\[LessEqual]", " ", "1"}], ")"}]}], ")"}], " ", "||", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"cy", "\[GreaterEqual]", " ", "yLoc"}], "&&", 
+               RowBox[{"cy", "\[LessEqual]", " ", 
+                RowBox[{"yLoc", "+", "1"}]}], "&&", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"cx", "-", "xLoc"}], "]"}], "\[LessEqual]", " ", 
+                 "1"}], ")"}]}], ")"}], " ", "&&", " ", 
+             RowBox[{"xLoc", " ", "\[LessEqual]", " ", "cx"}]}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"yes", " ", "=", " ", "False"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "yes", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702951812229041*^9, 3.702951861974601*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"same", " ", "function", " ", "as", " ", "isNotInPlatforms"}], 
+    ",", " ", 
+    RowBox[{
+    "but", " ", "if", " ", "flyer", " ", "is", " ", "on", " ", "right", " ", 
+     "edge"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"isNotInPlatformsRight", "[", 
+     RowBox[{"plts_", ",", " ", "xLoc_", ",", " ", "yLoc_"}], "]"}], " ", ":=",
+     " ", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+       "i", ",", " ", "\[IndentingNewLine]", "cx", ",", "\[IndentingNewLine]",
+         "cy", ",", "\[IndentingNewLine]", 
+        RowBox[{"yes", " ", "=", " ", "True"}]}], "\[IndentingNewLine]", 
+       "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+         RowBox[{"i", " ", "\[LessEqual]", " ", 
+          RowBox[{"Length", "[", "plts", "]"}]}], ",", " ", 
+         RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"cx", " ", "=", " ", 
+           RowBox[{
+            RowBox[{"plts", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "[", 
+            RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"cy", " ", "=", " ", 
+           RowBox[{
+            RowBox[{"plts", "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}], " ", "&&",
+                " ", 
+               RowBox[{"yLoc", " ", "<=", " ", 
+                RowBox[{"cy", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"xLoc", " ", "-", " ", "cx"}], "]"}], " ", 
+                 "\[LessEqual]", " ", "1"}], ")"}]}], ")"}], " ", "||", " ", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"cy", "\[GreaterEqual]", " ", "yLoc"}], "&&", 
+                RowBox[{"cy", "\[LessEqual]", " ", 
+                 RowBox[{"yLoc", "+", "1"}]}], "&&", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"Abs", "[", 
+                   RowBox[{"cx", "-", "xLoc"}], "]"}], "\[LessEqual]", " ", 
+                  "1"}], ")"}]}], ")"}], " ", "&&", " ", 
+              RowBox[{"cx", " ", "\[LessEqual]", " ", "xLoc"}]}]}], " ", ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"yes", " ", "=", " ", "False"}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "yes", "]"}]}]}], "\[IndentingNewLine]", 
+     "]"}]}], "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{{3.702951865851886*^9, 3.702951907623798*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"same", " ", "function", " ", "as", " ", "isNotInPlatforms"}], 
+    ",", " ", 
+    RowBox[{
+    "but", " ", "if", " ", "flyer", " ", "is", " ", "on", " ", "up", " ", 
+     "edge"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isNotInPlatformsUp", "[", 
+    RowBox[{"plts_", ",", " ", "xLoc_", ",", " ", "yLoc_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+      "i", ",", " ", "\[IndentingNewLine]", "cx", ",", "\[IndentingNewLine]", 
+       "cy", ",", "\[IndentingNewLine]", 
+       RowBox[{"yes", " ", "=", " ", "True"}]}], "\[IndentingNewLine]", "}"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "plts", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"cy", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}], " ", "&&", 
+              " ", 
+              RowBox[{"yLoc", " ", "<=", " ", 
+               RowBox[{"cy", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"xLoc", " ", "-", " ", "cx"}], "]"}], " ", 
+                "\[LessEqual]", " ", "1"}], ")"}]}], ")"}], " ", "||", " ", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"cy", "\[GreaterEqual]", " ", "yLoc"}], "&&", 
+              RowBox[{"cy", "\[LessEqual]", " ", 
+               RowBox[{"yLoc", "+", "1"}]}], "&&", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"cx", "-", "xLoc"}], "]"}], "\[LessEqual]", " ", 
+                "1"}], ")"}]}], ")"}]}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"yLoc", " ", "\[LessEqual]", " ", "cy"}], ",", 
+             RowBox[{
+              RowBox[{"yes", " ", "=", " ", "False"}], ";"}]}], "]"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "yes", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702951891520996*^9, 3.702951916057123*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"same", " ", "function", " ", "as", " ", "isNotInPlatforms"}], 
+    ",", " ", 
+    RowBox[{
+    "but", " ", "if", " ", "flyer", " ", "is", " ", "on", " ", "down", " ", 
+     "edge"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isNotInPlatformsDown", "[", 
+    RowBox[{"plts_", ",", " ", "xLoc_", ",", " ", "yLoc_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+      "i", ",", " ", "\[IndentingNewLine]", "cx", ",", "\[IndentingNewLine]", 
+       "cy", ",", "\[IndentingNewLine]", 
+       RowBox[{"yes", " ", "=", " ", "True"}]}], "\[IndentingNewLine]", "}"}],
+      ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"i", " ", "=", " ", "1"}], ",", " ", 
+        RowBox[{"i", " ", "\[LessEqual]", " ", 
+         RowBox[{"Length", "[", "plts", "]"}]}], ",", " ", 
+        RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"cx", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"cy", " ", "=", " ", 
+          RowBox[{
+           RowBox[{"plts", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "[", 
+           RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}], " ", "&&", 
+              " ", 
+              RowBox[{"yLoc", " ", "<=", " ", 
+               RowBox[{"cy", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+              RowBox[{"(", 
+               RowBox[{
+                RowBox[{"Abs", "[", 
+                 RowBox[{"xLoc", " ", "-", " ", "cx"}], "]"}], " ", 
+                "\[LessEqual]", " ", "1"}], ")"}]}], ")"}], " ", "||", " ", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"cy", "\[GreaterEqual]", " ", "yLoc"}], "&&", 
+               RowBox[{"cy", "\[LessEqual]", " ", 
+                RowBox[{"yLoc", "+", "1"}]}], "&&", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{"Abs", "[", 
+                  RowBox[{"cx", "-", "xLoc"}], "]"}], "\[LessEqual]", " ", 
+                 "1"}], ")"}]}], ")"}], "  ", "&&", " ", 
+             RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "cy"}]}]}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"yes", " ", "=", " ", "False"}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}], ";"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "yes", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702951921194317*^9, 3.702951943472361*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isInY", "[", "y_", "]"}], " ", ":=", " ", 
+   RowBox[{"Return", "[", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"y", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&", " ", 
+       RowBox[{"y", "\[LessEqual]", " ", "12.8"}]}], ",", " ", "True", ",", 
+      " ", "False"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029520120291843`*^9, 3.702952012665943*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"isInX", "[", "x_", "]"}], " ", ":=", " ", 
+   RowBox[{"Return", "[", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"x", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&", " ", 
+       RowBox[{"x", " ", "\[LessEqual]", " ", "30"}]}], ",", " ", "True", ",",
+       " ", "False"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{3.702952013590478*^9, 3.7029521110206614`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Game display/mechanics", "Subchapter",
+ CellChangeTimes->{{3.7029522226882677`*^9, 3.7029522279399843`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"testEnemy", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<enemy\>\"", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"12", ",", "6"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", 
+       RowBox[{"-", "0.1"}]}], "}"}], ",", " ", "2"}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"testPlayer", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<player\>\"", ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"5", ",", "2"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", " ", 
+       RowBox[{"-", "0.1"}]}], "}"}], ",", " ", "2"}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.702952236112933*^9, 3.702952236406271*^9}, {
+  3.7029522736244993`*^9, 3.702952276989315*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"xEquation", "[", "t_", "]"}], ":=", 
+  RowBox[{
+   RowBox[{".5", " ", "t"}], "+", " ", "1"}]}]], "Input",
+ CellChangeTimes->{{3.702952278239513*^9, 3.7029522870077677`*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"yEquation", "[", "t_", "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", ".25"}], " ", "*", 
+     RowBox[{"t", "^", "2"}]}], "+", 
+    RowBox[{".05", " ", "*", "t"}], "+", ".0"}]}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"score", " ", "=", " ", "0"}], ";"}], " "}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"playerLives", " ", "=", " ", "2"}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.70295228818836*^9, 3.7029522926384773`*^9}, {
+  3.703002943462103*^9, 3.7030029978210993`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"main", " ", "function", " ", "for", " ", "1"}], "-", 
+     RowBox[{"player", " ", "mode"}]}], ";", " ", 
+    RowBox[{"controls", " ", "are", " ", "the", " ", "arrow", " ", "keys"}]}],
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"generateGame", "[", 
+    RowBox[{"map_", ",", " ", "player_", ",", " ", "enemy_"}], "]"}], " ", ":=",
+    " ", 
+   RowBox[{"DynamicModule", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"mapnumber", " ", "=", " ", "map"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xLoc", " ", "=", " ", "5"}], ",", " ", "\[IndentingNewLine]", 
+       
+       RowBox[{"yLoc", " ", "=", " ", "2"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xELoc", " ", "=", " ", "12"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc", " ", "=", " ", "6"}], ",", " ", "\[IndentingNewLine]", 
+       RowBox[{"xELoc2", "=", "16"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc2", " ", "=", " ", "6"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xELoc3", "=", "20"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc3", " ", "=", " ", "6"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xELoc4", "=", "6"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc4", " ", "=", " ", "10"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xELoc5", "=", "16"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc5", " ", "=", " ", "10"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xELoc6", "=", "20"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yELoc6", " ", "=", " ", "6"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"leftKeyDown", " ", "=", " ", "False"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"isOnPlatform", " ", "=", " ", "False"}], ",", 
+       "\[IndentingNewLine]", " ", 
+       RowBox[{"rightKeyDown", " ", "=", " ", "False"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"dontFall", " ", "=", " ", "False"}], ",", " ", 
+       "\[IndentingNewLine]", 
+       RowBox[{"upDown", " ", "=", " ", "False"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"xVel", " ", "=", " ", "0"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"yVel", " ", "=", " ", "0"}], ",", " ", "\[IndentingNewLine]", 
+       
+       RowBox[{"yAcc", " ", "=", " ", "0"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"isDead", " ", "=", " ", "False"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"numEnemies", " ", "=", " ", "3"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"numLives", "=", "2"}], ",", "\[IndentingNewLine]", 
+       "spawnList", " ", ",", "\[IndentingNewLine]", "currSpawns", ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"enemiesAlive", " ", "=", " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "True", ",", "True", ",", "True", ",", "True", ",", "True", ",", 
+          "True"}], "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"hits", " ", "=", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+         "}"}]}], ",", "\[IndentingNewLine]", "colors", " ", ",", 
+       "\[IndentingNewLine]", "platforms"}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+      "event", " ", "handler", " ", "to", " ", "map", " ", "key", " ", 
+       "input", " ", "from", " ", "user"}], "*)"}], "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"score", "=", "0"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"platforms", " ", "=", " ", 
+       RowBox[{"collisionsList", "[", "mapnumber", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"playerLives", "=", "2"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"spawnList", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "xELoc", ",", " ", "yELoc", ",", " ", "xELoc2", ",", " ", "yELoc2", 
+         ",", " ", "xELoc3", ",", " ", "yELoc3", ",", " ", "xELoc4", ",", " ",
+          "yELoc4", ",", " ", "xELoc5", ",", " ", "yELoc5", ",", " ", 
+         "xELoc6", ",", " ", "yELoc6"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      
+      RowBox[{"currSpawns", " ", "=", " ", 
+       RowBox[{"updateSpawns", "[", "mapnumber", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"colors", " ", "=", " ", 
+       RowBox[{"enemyColors", "[", "mapnumber", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"EventHandler", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Dynamic", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"(*", 
+            RowBox[{"Switch", "[", 
+             RowBox[{"mapnumber", ",", "\[IndentingNewLine]", "1", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", " ", "yLoc", ",", "xELoc", ",", 
+                " ", "yELoc", ",", "xELoc2", ",", " ", "yELoc2", ",", " ", 
+                "xELoc3", ",", "yELoc3"}], "]"}], ",", "\[IndentingNewLine]", 
+              "2", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5"}], "]"}], ",", "\[IndentingNewLine]", 
+              "3", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5"}], "]"}], ",", "\[IndentingNewLine]", 
+              "4", ",", " ", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5"}], "]"}], ",", "\[IndentingNewLine]", 
+              "5", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", "\[IndentingNewLine]", "6", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", "\[IndentingNewLine]", "7", ",", " ", 
+              
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", "\[IndentingNewLine]", "8", ",", " ", 
+              
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", " ", "\[IndentingNewLine]", "9", ",", 
+              " ", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5"}], "]"}], ",", "\[IndentingNewLine]", 
+              "10", ",", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", "\[IndentingNewLine]", "11", ",", " ", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}], ",", "\[IndentingNewLine]", "12", ",", " ", 
+              RowBox[{"mapFlyerEnemy", "[", 
+               RowBox[{
+               "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+                "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+                "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", 
+                "xELoc5", ",", "yELoc5", ",", " ", "xELoc6", ",", " ", 
+                "yELoc6"}], "]"}]}], "]"}], "*)"}], "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"mapFlyerEnemy", "[", 
+             RowBox[{
+             "mapnumber", ",", "xLoc", ",", "yLoc", ",", "xELoc", ",", 
+              "yELoc", ",", "xELoc2", ",", "yELoc2", ",", "xELoc3", ",", 
+              "yELoc3", ",", " ", "xELoc4", ",", " ", "yELoc4", ",", "xELoc5",
+               ",", "yELoc5", ",", " ", "xELoc6", ",", " ", "yELoc6", ",", 
+              " ", "currSpawns", ",", " ", "enemiesAlive"}], "]"}], 
+            "\[IndentingNewLine]", ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"yLoc", "  ", "\[LessEqual]", " ", "0"}], ",", " ", 
+              RowBox[{
+               RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"yLoc", "  ", "\[GreaterEqual]", " ", "12.8"}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{"yLoc", " ", "-=", " ", ".3"}], ";"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"xLoc", "  ", "\[LessEqual]", " ", "0.2"}], ",", " ", 
+              RowBox[{
+               RowBox[{"xLoc", " ", "=", " ", "29.4"}], ";"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"xLoc", "  ", "\[GreaterEqual]", " ", "29.5"}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{"xLoc", " ", "=", " ", ".2"}], ";"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&", 
+               " ", 
+               RowBox[{"yLoc", " ", ">=", " ", "2"}], " ", "&&", " ", 
+               RowBox[{"dontFall", " ", "\[Equal]", " ", "False"}]}], ",", 
+              RowBox[{"yLoc", "-=", " ", ".03"}]}], "]"}], ",", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"!", 
+               RowBox[{"isNotInPlatforms", "[", 
+                RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"dontFall", " ", "=", " ", "True"}], ";"}], ",", 
+              RowBox[{
+               RowBox[{"dontFall", " ", "=", " ", "False"}], ";"}]}], "]"}], 
+            ",", "\[IndentingNewLine]", " ", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"rightKeyDown", " ", "\[Equal]", " ", "True"}], ",", 
+              "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"xLoc", " ", "\[LessEqual]", " ", "29.5"}], ",", 
+                 RowBox[{"xLoc", " ", "+=", " ", ".1"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"xLoc", " ", "=", " ", "1"}], ";"}]}], "]"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"yLoc", " ", "<", " ", "2"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"rightKeyDown", " ", "=", " ", "False"}], ";"}]}], 
+                "]"}], ";", "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"!", 
+                  RowBox[{"isNotInPlatforms", "[", 
+                   RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                   "]"}]}], ",", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"rightKeyDown", " ", "=", " ", "False"}], ";"}]}], 
+                "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+             "]"}], ",", "\[IndentingNewLine]", " ", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"leftKeyDown", " ", "\[Equal]", " ", "True"}], " ", "&&",
+                 " ", 
+                RowBox[{"rightKeyDown", " ", "\[Equal]", " ", "False"}]}], 
+               ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", ".5"}], ",", 
+                  RowBox[{"xLoc", " ", "-=", " ", ".1"}], ",", " ", 
+                  RowBox[{
+                   RowBox[{"xLoc", " ", "=", " ", "29.5"}], ";"}]}], "]"}], 
+                ";", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "<", " ", "2"}], ",", " ", 
+                  RowBox[{
+                   RowBox[{"leftKeyDown", " ", "=", " ", "False"}], ";"}]}], 
+                 "]"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"!", 
+                   RowBox[{"isNotInPlatforms", "[", 
+                    RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}],
+                     "]"}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"leftKeyDown", " ", "=", " ", "False"}], ";"}]}], 
+                 "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+              "]"}], "\[IndentingNewLine]", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "True"}]}], "||",
+                 "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc2", ",", " ", "yELoc2"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "True"}]}], "||",
+                 "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc3", ",", " ", "yELoc3"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "3", "]"}], "]"}], "\[Equal]", "True"}]}], "||",
+                 "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc4", ",", " ", "yELoc4"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "4", "]"}], "]"}], "\[Equal]", "True"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "1"}]}], "||", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc5", ",", " ", "yELoc5"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "5", "]"}], "]"}], "\[Equal]", "True"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "1"}]}], "||", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"stepOnPlayer", "[", 
+                  RowBox[{
+                   RowBox[{"{", 
+                    RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                   RowBox[{"{", 
+                    RowBox[{"xELoc6", ",", " ", "yELoc6"}], "}"}]}], "]"}], "&&", 
+                 RowBox[{
+                  RowBox[{"enemiesAlive", "[", 
+                   RowBox[{"[", "6", "]"}], "]"}], "\[Equal]", "True"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "1"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "2"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "3"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "4"}], "&&", 
+                 RowBox[{"mapnumber", "\[NotEqual]", "9"}]}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"xLoc", "=", "5"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"yLoc", "=", "2"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"xELoc", "=", "xELoc"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"yELoc", "=", "yELoc"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"playerLives", "--"}], ";", " ", 
+                "\[IndentingNewLine]", 
+                RowBox[{"numLives", "--"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"numLives", "==", "0"}], ",", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"mapnumber", "=", "1"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"playerLives", "=", "2"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"xLoc", "=", "5"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"yLoc", "=", "2"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"currSpawns", " ", "=", " ", 
+                    RowBox[{"updateSpawns", "[", "mapnumber", "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"enemiesAlive", "=", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "True", ",", "True", ",", "True", ",", "True", ",", 
+                    "True", ",", "True"}], "}"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"hits", " ", "=", " ", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"numEnemies", " ", "=", " ", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"enemyColors", "[", "mapnumber", "]"}], "]"}]}], 
+                   ";", " ", "\[IndentingNewLine]", 
+                   RowBox[{"isDead", " ", "=", " ", "False"}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"(*", 
+                    RowBox[{
+                    RowBox[{"AppendTo", "[", 
+                    RowBox[{"topScoresList", ",", "score"}], "]"}], ";"}], 
+                    "*)"}], "\[IndentingNewLine]", 
+                   RowBox[{"score", "=", "0"}], ";", "\[IndentingNewLine]", 
+                   RowBox[{"xELoc", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+                   RowBox[{"yELoc", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}]}], ";", 
+                   RowBox[{"xELoc2", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "5", "]"}], "]"}]}], ";", 
+                   RowBox[{"yELoc2", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "6", "]"}], "]"}]}], ";", 
+                   RowBox[{"xELoc3", " ", "=", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "8", "]"}], "]"}]}], ";", 
+                   RowBox[{"yELoc3", " ", "=", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "9", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"xELoc4", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "11", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"yELoc4", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "12", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"xELoc5", " ", "=", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "14", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"yELoc5", " ", "=", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "15", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"xELoc6", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "17", "]"}], "]"}]}], ";", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{"yELoc6", " ", "=", " ", 
+                    RowBox[{"currSpawns", "[", 
+                    RowBox[{"[", "18", "]"}], "]"}]}], ";"}]}], 
+                 "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+              "]"}]}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}]}], "]"}], "&&", 
+               
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "1", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "1", "]"}], "]"}], " ", "==", " ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc", " ", "-=", " ", ".5"}], ";"}]}], "]"}]}]}],
+              "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc2", ",", " ", "yELoc2"}], "}"}]}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], " ", "==", " ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "2", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc2", " ", "-=", " ", ".5"}], ";"}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc3", ",", " ", "yELoc3"}], "}"}]}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "3", "]"}], "]"}], " ", "==", " ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "3", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "3", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc3", " ", "-=", " ", ".5"}], ";"}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc4", ",", " ", "yELoc4"}], "}"}]}], "]"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "10", "]"}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "4", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "4", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"isDead", " ", "=", " ", "True"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "4", "]"}], "]"}], "==", "  ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "4", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "4", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc4", " ", "-=", " ", ".5"}], ";"}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc5", ",", " ", "yELoc5"}], "}"}]}], "]"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "13", "]"}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "5", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "5", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"isDead", " ", "=", " ", "True"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "5", "]"}], "]"}], " ", "==", " ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "5", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "5", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc5", " ", "-=", " ", ".5"}], ";"}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"stepOnEnemy", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"xELoc6", ",", " ", "yELoc6"}], "}"}]}], "]"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "16", "]"}], "]"}], "&&", 
+               RowBox[{
+                RowBox[{"enemiesAlive", "[", 
+                 RowBox[{"[", "6", "]"}], "]"}], "\[Equal]", "True"}]}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"hits", "[", 
+                 RowBox[{"[", "6", "]"}], "]"}], "++"}], ";", 
+               RowBox[{"isDead", " ", "=", " ", "True"}], ";", 
+               RowBox[{"score", "+=", "500"}], ";", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"hits", "[", 
+                   RowBox[{"[", "6", "]"}], "]"}], "==", " ", "2"}], ",", 
+                 RowBox[{
+                  RowBox[{"numEnemies", "--"}], ";", " ", 
+                  RowBox[{
+                   RowBox[{"enemiesAlive", "[", 
+                    RowBox[{"[", "6", "]"}], "]"}], " ", "=", " ", "False"}], 
+                  ";"}]}], "]"}], ";", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"enemiesAlive", "[", 
+                  RowBox[{"[", "6", "]"}], "]"}], ",", " ", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", ".5"}], ";", " ", 
+                  RowBox[{"yELoc6", " ", "-=", " ", ".5"}], ";"}]}], 
+                "]"}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"numEnemies", " ", "\[Equal]", " ", "0"}], ",", " ", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"mapnumber", " ", "\[Equal]", " ", "12"}], ",", 
+                 RowBox[{
+                  RowBox[{"mapnumber", " ", "=", " ", "1"}], ";", 
+                  RowBox[{"currSpawns", " ", "=", " ", 
+                   RowBox[{"updateSpawns", "[", "mapnumber", "]"}]}], ";"}], 
+                 ",", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"mapnumber", "++"}], ";", " ", 
+                  RowBox[{"enemiesAlive", "=", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "True", ",", "True", ",", "True", ",", "True", ",", 
+                    "True", ",", "True"}], "}"}]}], ";", " ", 
+                  RowBox[{"hits", " ", "=", " ", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0"}], 
+                    "}"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", " ", 
+               
+               RowBox[{"xLoc", " ", "=", " ", "5"}], ";", " ", 
+               RowBox[{"yLoc", " ", "=", " ", "2"}], ";", " ", 
+               RowBox[{"numEnemies", " ", "=", " ", 
+                RowBox[{"Length", "[", 
+                 RowBox[{"enemyColors", "[", "mapnumber", "]"}], "]"}]}], ";",
+                " ", 
+               RowBox[{"isDead", " ", "=", " ", "False"}], ";", " ", 
+               RowBox[{"currSpawns", " ", "=", " ", 
+                RowBox[{"updateSpawns", "[", "mapnumber", "]"}]}], ";", 
+               RowBox[{"xELoc", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "2", "]"}], "]"}]}], ";", 
+               RowBox[{"yELoc", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "3", "]"}], "]"}]}], ";", 
+               RowBox[{"xELoc2", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "5", "]"}], "]"}]}], ";", 
+               RowBox[{"yELoc2", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "6", "]"}], "]"}]}], ";", 
+               RowBox[{"xELoc3", " ", "=", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "8", "]"}], "]"}]}], ";", 
+               RowBox[{"yELoc3", " ", "=", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "9", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+               RowBox[{"xELoc4", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "11", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"yELoc4", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "12", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"xELoc5", " ", "=", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "14", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"yELoc5", " ", "=", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "15", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"xELoc6", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "17", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"yELoc6", " ", "=", " ", 
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "18", "]"}], "]"}]}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"platforms", " ", "=", " ", 
+                RowBox[{"collisionsList", "[", "mapnumber", "]"}]}], ";"}]}], 
+             "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"yELoc", " ", "\[LessEqual]", " ", "12.799999"}], " ", 
+              ",", " ", 
+              RowBox[{
+               RowBox[{"yELoc", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc", ",", " ", "yELoc"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}], ",", " ", 
+              RowBox[{"yELoc", " ", "-=", " ", ".5"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"yELoc2", " ", "\[LessEqual]", " ", "12.799999"}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{"yELoc2", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc2", ",", " ", "yELoc2"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc2", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc2", ",", " ", "yELoc2"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}], ",", 
+              RowBox[{"yELoc2", " ", "-=", " ", ".5"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"yELoc3", " ", "\[LessEqual]", " ", "12.799999"}], ",", 
+              " ", 
+              RowBox[{
+               RowBox[{"yELoc3", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc3", ",", " ", "yELoc3"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc3", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc3", ",", " ", "yELoc3"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}]}], "]"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"yELoc4", " ", "\[LessEqual]", " ", "12.799999"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "10", "]"}], "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"yELoc4", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc4", ",", " ", "yELoc4"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc4", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc4", ",", " ", "yELoc4"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}], ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "10", "]"}], "]"}], ",", " ", 
+                RowBox[{"yELoc4", "-=", " ", ".5"}]}], "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"yELoc5", " ", "\[LessEqual]", " ", "12.799999"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "13", "]"}], "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"yELoc5", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc5", ",", " ", "yELoc5"}], "}"}], ",", " ", 
+                  ".0075"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc5", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc5", ",", " ", "yELoc5"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}], ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "13", "]"}], "]"}], ",", " ", 
+                RowBox[{"yELoc5", "-=", " ", ".5"}]}], "]"}]}], "]"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"yELoc6", " ", "\[LessEqual]", " ", "12.799999"}], " ",
+                "&&", " ", 
+               RowBox[{"currSpawns", "[", 
+                RowBox[{"[", "16", "]"}], "]"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"yELoc6", " ", "-=", " ", 
+                RowBox[{"computeYStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc6", ",", " ", "yELoc6"}], "}"}], ",", " ", 
+                  ".0075"}], "]"}]}], ";", " ", 
+               RowBox[{"xELoc6", " ", "-=", " ", 
+                RowBox[{"computeXStepToFlyer", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], ",", " ", 
+                  RowBox[{"{", 
+                   RowBox[{"xELoc6", ",", " ", "yELoc6"}], "}"}], ",", " ", 
+                  ".005"}], "]"}]}]}], ",", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"currSpawns", "[", 
+                 RowBox[{"[", "16", "]"}], "]"}], ",", " ", 
+                RowBox[{"yELoc6", "-=", " ", ".5"}]}], "]"}]}], "]"}]}], 
+           "\[IndentingNewLine]", "}"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "]"}], "\[IndentingNewLine]", ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"\"\<RightArrowKeyDown\>\"", "\[RuleDelayed]", " ", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"isInX", "[", "xLoc", "]"}], " ", "&&", " ", 
+                RowBox[{"isNotInPlatformsRight", "[", 
+                 RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                 "]"}]}], ",", " ", 
+               RowBox[{
+                RowBox[{"xLoc", " ", "+=", " ", ".2"}], ";"}]}], "]"}], ";", 
+             " ", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"isInY", "[", "yLoc", "]"}], " ", "&&", " ", 
+                RowBox[{"isNotInPlatformsUp", "[", 
+                 RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                 "]"}]}], ",", " ", 
+               RowBox[{"yLoc", " ", "+=", " ", ".2"}], ",", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"isNotInPlatformsUp", "[", 
+                  RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                  "]"}], ",", 
+                 RowBox[{"yLoc", " ", "+=", " ", ".2"}]}], "]"}]}], "]"}]}], 
+            "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "7"}], " ", "&&",
+                  " ", 
+                 RowBox[{"xLoc", " ", "\[LessEqual]", " ", "22"}], " ", "&&", 
+                 " ", 
+                 RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "3.8"}], " ", "&&",
+                  " ", 
+                 RowBox[{"yLoc", " ", "\[LessEqual]", " ", "6"}]}], " ", ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "5.8"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"isOnPlatform", " ", "\[Equal]", " ", "True"}], 
+                    ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"isOnPlatform", " ", "=", " ", "False"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"xLoc", " ", "+=", " ", ".5"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"yLoc", " ", "-=", " ", 
+                    RowBox[{"1.3", "*", 
+                    RowBox[{"yEquation", "[", "1", "]"}]}]}], ";"}], 
+                    "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                    RowBox[{
+                    RowBox[{"isOnPlatform", " ", "=", " ", "True"}], ";"}]}], 
+                   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                 "]"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&",
+                     " ", 
+                    RowBox[{
+                    "yLoc", " ", "\[LessEqual]", " ", "12.799999999"}]}], ",",
+                    "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"yLoc", " ", "-=", " ", 
+                    RowBox[{"1.3", "*", 
+                    RowBox[{"yEquation", "[", "1", "]"}]}]}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&",
+                     " ", 
+                    RowBox[{"xLoc", " ", "\[LessEqual]", " ", "30.5"}]}], ",",
+                    "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"xLoc", " ", "+=", " ", ".5"}], ";"}], ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"xLoc", " ", "=", " ", "1"}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"rightKeyDown", " ", "=", " ", "True"}], ";", " ", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"leftKeyDown", " ", "=", " ", "False"}], ";"}]}], 
+               "\[IndentingNewLine]", "]"}], ";"}], "*)"}], 
+            "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"\"\<LeftArrowKeyDown\>\"", "\[RuleDelayed]", " ", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "7"}], " ", "&&",
+                 " ", 
+                RowBox[{"xLoc", " ", "\[LessEqual]", " ", "23"}], " ", "&&", 
+                " ", 
+                RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "3.8"}], " ", "&&",
+                 " ", 
+                RowBox[{"yLoc", " ", "\[LessEqual]", " ", "6"}]}], ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "5.8"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"isOnPlatform", " ", "\[Equal]", " ", "True"}], 
+                   ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"isOnPlatform", " ", "=", " ", "False"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"xLoc", " ", "-=", " ", ".5"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"yLoc", " ", "-=", " ", 
+                    RowBox[{"1.3", "*", 
+                    RowBox[{"yEquation", "[", "1", "]"}]}]}], ";"}], 
+                   "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"isOnPlatform", " ", "=", " ", "True"}], ";"}]}], 
+                  "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+                "]"}], "\[IndentingNewLine]", ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"rightKeyDown", " ", "=", " ", "False"}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"leftKeyDown", " ", "=", " ", "True"}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&",
+                    " ", 
+                   RowBox[{
+                   "yLoc", " ", "\[LessEqual]", " ", "12.7999999999"}]}], ",",
+                   "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"yLoc", " ", "-=", " ", 
+                    RowBox[{"1.3", "*", 
+                    RowBox[{"yEquation", "[", "1", "]"}]}]}], ";"}]}], 
+                 "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "1.5"}], " ", 
+                   "&&", " ", 
+                   RowBox[{"xLoc", " ", "\[LessEqual]", " ", "30.5"}]}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"xLoc", " ", "-=", " ", ".5"}], ";"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"xLoc", " ", "=", " ", "30"}], ";"}]}], 
+                 "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+              "]"}], "*)"}], "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"isInX", "[", "xLoc", "]"}], " ", "&&", " ", 
+                RowBox[{"isNotInPlatformsLeft", "[", 
+                 RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                 "]"}]}], ",", 
+               RowBox[{
+                RowBox[{"xLoc", " ", "-=", " ", ".2"}], ";"}]}], "]"}], ";", 
+             " ", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"isInY", "[", "yLoc", "]"}], " ", "&&", " ", 
+                RowBox[{"isNotInPlatformsUp", "[", 
+                 RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                 "]"}]}], ",", " ", 
+               RowBox[{"yLoc", " ", "+=", " ", ".2"}], ",", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"isNotInPlatformsUp", "[", 
+                  RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                  "]"}], ",", 
+                 RowBox[{"yLoc", " ", "+=", " ", ".2"}]}], "]"}]}], "]"}]}], 
+            "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"\"\<UpArrowKeyDown\>\"", "\[RuleDelayed]", " ", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "7"}], " ", "&&",
+                 " ", 
+                RowBox[{"xLoc", " ", "\[LessEqual]", " ", "23"}], " ", "&&", 
+                " ", 
+                RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "3.8"}], " ", "&&",
+                 " ", 
+                RowBox[{"yLoc", " ", "<", " ", "6"}]}], ",", ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{"yLoc", " ", "\[LessEqual]", " ", "12.79999999999"}],
+                  ",", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "-=", " ", 
+                   RowBox[{"2", "*", 
+                    RowBox[{"yEquation", "[", "1", "]"}]}]}], ";"}]}], 
+                "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"isInY", "[", "yLoc", "]"}], " ", "&&", " ", 
+               RowBox[{"isNotInPlatformsUp", "[", 
+                RowBox[{"platforms", ",", "xLoc", ",", " ", "yLoc"}], "]"}]}],
+               ",", 
+              RowBox[{
+               RowBox[{"yLoc", " ", "+=", " ", ".2"}], ";"}], ",", " ", 
+              RowBox[{
+               RowBox[{"yLoc", " ", "-=", " ", ".2"}], ";"}]}], "]"}], 
+            "\[IndentingNewLine]", ")"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"\"\<DownArrowKeyDown\>\"", "\[RuleDelayed]", " ", 
+           RowBox[{"(", "\[IndentingNewLine]", 
+            RowBox[{"(*", 
+             RowBox[{"If", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"xLoc", " ", "\[GreaterEqual]", " ", "7"}], "&&", " ", 
+                RowBox[{"xLoc", " ", "\[LessEqual]", " ", "23"}], " ", "&&", 
+                " ", 
+                RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "3.8"}], " ", "&&",
+                 " ", 
+                RowBox[{"yLoc", " ", "\[LessEqual]", " ", "6"}]}], ",", ",", 
+               "\[IndentingNewLine]", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "0"}], " ", "&&",
+                   " ", 
+                  RowBox[{"yLoc", " ", "\[GreaterEqual]", " ", "2"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"yLoc", " ", "+=", " ", 
+                   RowBox[{"yEquation", "[", "1", "]"}]}], ";"}]}], 
+                "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}], 
+             "*)"}], "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"isInY", "[", "yLoc", "]"}], " ", "&&", " ", 
+               RowBox[{"isNotInPlatformsDown", "[", 
+                RowBox[{"platforms", ",", " ", "xLoc", ",", " ", "yLoc"}], 
+                "]"}]}], " ", ",", 
+              RowBox[{"yLoc", " ", "-=", " ", ".2"}]}], "]"}], 
+            "\[IndentingNewLine]", ")"}]}]}], "\[IndentingNewLine]", "}"}]}], 
+       "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029522947403593`*^9, 3.7029522955649033`*^9}, {
+   3.702952325776536*^9, 3.70295232973822*^9}, {3.702990250537036*^9, 
+   3.702990298817233*^9}, {3.702990373235724*^9, 3.702990486601842*^9}, {
+   3.702990652620867*^9, 3.7029906527078*^9}, {3.702990807919879*^9, 
+   3.7029908307417316`*^9}, 3.702990863119742*^9, 3.702990921680552*^9, {
+   3.702991106780438*^9, 3.7029911139020243`*^9}, {3.7030024670473223`*^9, 
+   3.703002505895996*^9}, {3.703002568618516*^9, 3.703002600274969*^9}, {
+   3.703002933587925*^9, 3.703002936524921*^9}, 3.7030067059682407`*^9, {
+   3.7030067508790817`*^9, 3.703006753528488*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"generateGame", "[", 
+    RowBox[{"1", ",", " ", "testPlayer", ",", " ", "testEnemy"}], "]"}], 
+   ";"}]}]], "Input",
+ CellChangeTimes->{{3.702990610471464*^9, 3.702990623036785*^9}, {
+   3.702990835570451*^9, 3.7029908508080597`*^9}, {3.702990928165093*^9, 
+   3.7029909287608852`*^9}, 3.703006723106571*^9, {3.703006781779703*^9, 
+   3.703006784581567*^9}, {3.703007237690394*^9, 3.703007252801832*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.703003045086587*^9, 3.703003052770392*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.703003023596752*^9, 3.703003024931101*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"lifeGraphics", "[", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"numLives", "=", "2"}], ",", "lives"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"numLives", "\[Equal]", "2"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"Blue", ",", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{"{", 
+               RowBox[{"1", ",", "1"}], "}"}], "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"Blue", ",", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{"{", 
+               RowBox[{"3", ",", "1"}], "}"}], "]"}]}], "}"}]}], "}"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "Small"}]}], "]"}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.702952360869102*^9, 3.7029523749398212`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "returns", " ", "list", " ", "of", " ", "the", " ", "enemy", " ", "colors",
+     " ", "needed", " ", "for", " ", "every", " ", "map"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"enemyColors", "[", "map_", "]"}], " ", ":=", " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Switch", "[", 
+    RowBox[{"map", ",", " ", "\[IndentingNewLine]", "1", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{"Pink", ",", "Pink", ",", "Pink"}], "}"}], "]"}], " ", ",", 
+     "\[IndentingNewLine]", " ", "2", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "3", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "4", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "5", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", 
+        " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "6", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", "Yellow", ",", 
+        " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "7", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", 
+        " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "8", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", "Yellow", ",", 
+        " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "9", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "10", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", " ", "Yellow", 
+        ",", " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "11", 
+     ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Pink", ",", "Yellow", ",", "Yellow", ",", "Yellow", ",", 
+        " ", "Yellow"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "12", ",", 
+     
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "Pink", ",", "Yellow", ",", "Yellow", ",", "Yellow", ",", "Yellow", 
+        ",", " ", "Yellow"}], "}"}], "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029524051496897`*^9, 3.702952405390956*^9}, {
+  3.7029830984299307`*^9, 3.7029831137604637`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "returns", " ", "the", " ", "global", " ", "variables", " ", "storing", 
+    " ", "map", " ", "data", " ", "to", " ", "allow", " ", "the", " ", "game",
+     " ", "to", " ", "execute", " ", "inside", " ", "the", " ", "menu"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"getMap", "[", "map_", "]"}], " ", ":=", " ", 
+   RowBox[{"Switch", "[", 
+    RowBox[{"map", ",", "\[IndentingNewLine]", "1", ",", 
+     RowBox[{"Return", "[", "map1", "]"}], ",", "\[IndentingNewLine]", "2", 
+     ",", 
+     RowBox[{"Return", "[", "map2", "]"}], ",", "\[IndentingNewLine]", "3", 
+     ",", 
+     RowBox[{"Return", "[", "map3", "]"}], ",", "\[IndentingNewLine]", "4", 
+     ",", 
+     RowBox[{"Return", "[", "map4", "]"}], ",", "\[IndentingNewLine]", "5", 
+     ",", 
+     RowBox[{"Return", "[", "map5", "]"}], ",", "\[IndentingNewLine]", "6", 
+     ",", 
+     RowBox[{"Return", "[", "map6", "]"}], ",", "\[IndentingNewLine]", "7", 
+     ",", 
+     RowBox[{"Return", "[", "map7", "]"}], ",", "\[IndentingNewLine]", "8", 
+     ",", 
+     RowBox[{"Return", "[", "map8", "]"}], ",", "\[IndentingNewLine]", "9", 
+     ",", 
+     RowBox[{"Return", "[", "map9", "]"}], ",", "\[IndentingNewLine]", "10", 
+     ",", 
+     RowBox[{"Return", "[", "map10", "]"}], ",", "\[IndentingNewLine]", "11", 
+     ",", 
+     RowBox[{"Return", "[", "map11", "]"}], ",", "\[IndentingNewLine]", "12", 
+     ",", 
+     RowBox[{"Return", "[", "map12", "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702952406722845*^9, 3.702952415090356*^9}, {
+  3.702983116979033*^9, 3.7029831587147417`*^9}, {3.702983400301404*^9, 
+  3.702983401147498*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "a", " ", "list", " ", "containing", " ", "the", " ", 
+     "values", " ", "of", " ", "if", " ", "the", " ", "enemy", " ", "should", 
+     " ", "be", " ", "spawned"}], ",", " ", 
+    RowBox[{
+     RowBox[{"followed", " ", "by", " ", "its", " ", "x"}], "-", " ", 
+     RowBox[{"and", " ", "y"}], "-", " ", "coordinates"}], ",", " ", 
+    RowBox[{"for", " ", "all", " ", "six", " ", "possible", " ", "flyers"}]}],
+    "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"updateSpawns", "[", "map_", "]"}], " ", ":=", " ", 
+   RowBox[{"Switch", "[", 
+    RowBox[{"map", ",", "\[IndentingNewLine]", "1", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "12", ",", "6", ",", "True", ",", "16", ",", "6", 
+        ",", "True", ",", "20", ",", "6", ",", " ", "False", ",", "0", ",", 
+        "0", ",", "False", ",", "0", ",", "0", ",", "False", ",", "0", ",", 
+        "0"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "2", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "12", ",", "6", ",", "True", ",", "16", ",", "6", 
+        ",", "True", ",", "20", ",", "6", ",", " ", "True", ",", "6", ",", 
+        "10", ",", "True", ",", "26", ",", "10", ",", "False", ",", "0", ",", 
+        "0"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "3", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "16", ",", "4", ",", "True", ",", "17", ",", "9", 
+        ",", "True", ",", "10", ",", "6", ",", " ", "True", ",", "10", ",", 
+        "12", ",", "True", ",", "25", ",", "12", ",", "False", ",", "0", ",", 
+        "0"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "4", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "8", ",", "7", ",", "True", ",", "18", ",", "9", ",",
+         "True", ",", "25", ",", "6", ",", " ", "True", ",", "14", ",", "6", 
+        ",", "True", ",", "20", ",", "4", ",", "False", ",", "0", ",", "0"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "5", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "12", ",", "4", ",", "True", ",", "13", ",", "12", 
+        ",", "True", ",", "20", ",", "4", ",", " ", "True", ",", "5", ",", 
+        "8", ",", "True", ",", "14", ",", "9", ",", "True", ",", "25", ",", 
+        "10"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "6", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "6", ",", "9", ",", "True", ",", "26", ",", "9", ",",
+         "True", ",", "14", ",", "5", ",", " ", "True", ",", "17", ",", "5", 
+        ",", "True", ",", "10", ",", "11", ",", "True", ",", "22", ",", 
+        "11"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "7", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "5", ",", "5", ",", "True", ",", "28", ",", "11", 
+        ",", "True", ",", "17", ",", "4", ",", " ", "True", ",", "13", ",", 
+        "7", ",", "True", ",", "3", ",", "11", ",", "True", ",", "19", ",", 
+        "9"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "8", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "13", ",", "6", ",", "True", ",", "19", ",", "6", 
+        ",", "True", ",", "6", ",", "11", ",", " ", "True", ",", "23", ",", 
+        "8", ",", "True", ",", "26", ",", "11", ",", "True", ",", "9", ",", 
+        "8"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "9", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "8", ",", "7", ",", "True", ",", "20", ",", "4", ",",
+         "True", ",", "17", ",", "9", ",", " ", "True", ",", "14", ",", "6", 
+        ",", "True", ",", "24", ",", "6", ",", "False", ",", "0", ",", "0"}], 
+       "}"}], "]"}], ",", "\[IndentingNewLine]", "10", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "12", ",", "4", ",", "True", ",", "20", ",", "4", 
+        ",", "True", ",", "10", ",", "9", ",", " ", "True", ",", "25", ",", 
+        "10", ",", "True", ",", "20", ",", "12", ",", "True", ",", "15", ",", 
+        "12"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "11", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "13", ",", "8", ",", "True", ",", "21", ",", "8", 
+        ",", "True", ",", "4", ",", "6", ",", " ", "True", ",", "29", ",", 
+        "6", ",", "True", ",", "9", ",", "7", ",", "True", ",", "25", ",", 
+        "7"}], "}"}], "]"}], ",", "\[IndentingNewLine]", "12", ",", 
+     RowBox[{"Return", "[", 
+      RowBox[{"{", 
+       RowBox[{
+       "True", ",", " ", "13", ",", "6", ",", "True", ",", "6", ",", "9", ",",
+         "True", ",", "26", ",", "9", ",", " ", "True", ",", "18", ",", "6", 
+        ",", "True", ",", "21", ",", "11", ",", "True", ",", "10", ",", 
+        "11"}], "}"}], "]"}]}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702952415809506*^9, 3.7029524233556967`*^9}, {
+  3.702983163140524*^9, 3.7029831949887238`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "a", " ", "display", " ", "of", " ", "the", " ", "map"}], 
+    ",", " ", "player", ",", " ", 
+    RowBox[{
+     RowBox[{"and", " ", "3"}], " ", "-", " ", 
+     RowBox[{
+     "6", " ", "enemies", " ", "depending", " ", "on", " ", "the", " ", "map",
+       " ", "and", " ", "enemies", " ", "alive"}]}]}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"mapFlyerEnemy", "[", 
+    RowBox[{
+    "map_", ",", "xLoc_", ",", "yLoc_", ",", " ", "xELoc1_", ",", " ", 
+     "yELoc1_", ",", "xELoc2_", ",", " ", "yELoc2_", ",", "xELoc3_", ",", " ",
+      "yELoc3_", ",", "xELoc4_", ",", " ", "yELoc4_", ",", " ", "xELoc5_", 
+     ",", " ", "yELoc5_", ",", " ", "xELoc6_", ",", " ", "yELoc6_", ",", " ", 
+     "spawnlist_", ",", " ", "alive_"}], "]"}], ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"colors", " ", "=", " ", 
+        RowBox[{"enemyColors", "[", "map", "]"}]}], ",", 
+       "\[IndentingNewLine]", "\t", "graphics"}], "\[IndentingNewLine]", 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"graphics", " ", "=", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"getMap", "[", "map", "]"}], ",", " ", "Red", ",", " ", 
+         RowBox[{"Rectangle", "[", 
+          RowBox[{"{", 
+           RowBox[{"xLoc", ",", " ", "yLoc"}], "}"}], "]"}], ",", " ", 
+         "Pink"}], "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"alive", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], ",", " ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"graphics", ",", " ", 
+          RowBox[{
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ";", " ", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"graphics", ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{"{", 
+               RowBox[{"xELoc1", ",", " ", "yELoc1"}], "}"}], "]"}]}], 
+            "]"}]}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"alive", "[", 
+         RowBox[{"[", "2", "]"}], "]"}], ",", " ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"graphics", ",", " ", 
+          RowBox[{
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ";", " ", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"graphics", ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{"{", 
+               RowBox[{"xELoc2", ",", " ", "yELoc2"}], "}"}], "]"}]}], 
+            "]"}]}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{"alive", "[", 
+         RowBox[{"[", "3", "]"}], "]"}], ",", " ", 
+        RowBox[{"AppendTo", "[", 
+         RowBox[{"graphics", ",", " ", 
+          RowBox[{
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], ";", " ", 
+           RowBox[{"AppendTo", "[", 
+            RowBox[{"graphics", ",", " ", 
+             RowBox[{"Rectangle", "[", 
+              RowBox[{"{", 
+               RowBox[{"xELoc3", ",", " ", "yELoc3"}], "}"}], "]"}]}], 
+            "]"}]}]}], "]"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"spawnlist", "[", 
+          RowBox[{"[", "10", "]"}], "]"}], " ", "&&", " ", 
+         RowBox[{"alive", "[", 
+          RowBox[{"[", "4", "]"}], "]"}]}], ",", " ", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "4", "]"}], "]"}]}], "]"}], ";", " ", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{"{", 
+             RowBox[{"xELoc4", ",", " ", "yELoc4"}], "}"}], "]"}]}], 
+          "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"spawnlist", "[", 
+          RowBox[{"[", "13", "]"}], "]"}], " ", "&&", " ", 
+         RowBox[{"alive", "[", 
+          RowBox[{"[", "5", "]"}], "]"}]}], ",", " ", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "5", "]"}], "]"}]}], "]"}], ";", " ", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{"{", 
+             RowBox[{"xELoc5", ",", " ", "yELoc5"}], "}"}], "]"}]}], 
+          "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"spawnlist", "[", 
+          RowBox[{"[", "16", "]"}], "]"}], " ", "&&", " ", 
+         RowBox[{"alive", "[", 
+          RowBox[{"[", "6", "]"}], "]"}]}], ",", " ", 
+        RowBox[{
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"colors", "[", 
+            RowBox[{"[", "6", "]"}], "]"}]}], "]"}], ";", " ", 
+         RowBox[{"AppendTo", "[", 
+          RowBox[{"graphics", ",", " ", 
+           RowBox[{"Rectangle", "[", 
+            RowBox[{"{", 
+             RowBox[{"xELoc6", ",", " ", "yELoc6"}], "}"}], "]"}]}], 
+          "]"}]}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"graphics", ",", " ", 
+         RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702952424107368*^9, 3.70295245380797*^9}, {
+  3.70298337051374*^9, 3.702983390916832*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["AI/Flyer functions", "Subchapter",
+ CellChangeTimes->{{3.702983497840333*^9, 3.702983514005866*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "computes", " ", "a", " ", "step", " ", "closer", " ", "to", " ", "flyer2",
+     " ", "in", " ", "the", " ", "x", " ", "direction"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"computeXStepToFlyer", "[", 
+    RowBox[{"flyer1Loc_", ",", " ", "flyer2Loc_", ",", " ", "stepDistance_"}],
+     "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"x1", " ", "=", " ", 
+        RowBox[{"flyer1Loc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"x2", " ", "=", " ", 
+        RowBox[{"flyer2Loc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}]}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"x1", " ", "\[Equal]", " ", "x2"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "0", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"x1", " ", ">", " ", "x2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", 
+          RowBox[{
+           RowBox[{"-", "stepDistance"}], "*", 
+           RowBox[{"(", 
+            RowBox[{"EuclideanDistance", "[", 
+             RowBox[{"flyer1Loc", ",", " ", "flyer2Loc"}], "]"}], ")"}]}], 
+          "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", 
+          RowBox[{"stepDistance", "*", 
+           RowBox[{"EuclideanDistance", "[", 
+            RowBox[{"flyer1Loc", ",", " ", "flyer2Loc"}], "]"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702983516684987*^9, 3.702983517128992*^9}, 
+   3.702983547877716*^9}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "computes", " ", "a", " ", "step", " ", "closer", " ", "to", " ", "flyer2",
+     " ", "in", " ", "the", " ", "y", " ", "direction"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"computeYStepToFlyer", "[", 
+    RowBox[{"flyer1Loc_", ",", " ", "flyer2Loc_", ",", " ", "stepDistance_"}],
+     "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"y1", " ", "=", " ", 
+        RowBox[{
+         RowBox[{"flyer1Loc", "[", 
+          RowBox[{"[", "2", "]"}], "]"}], " ", "+", " ", "1"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"y2", " ", "=", " ", 
+        RowBox[{"flyer2Loc", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"y1", " ", "\[Equal]", " ", "y2"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"Return", "[", "0", "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"y1", " ", ">", " ", "y2"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", 
+          RowBox[{
+           RowBox[{"-", "stepDistance"}], "*", 
+           RowBox[{"EuclideanDistance", "[", 
+            RowBox[{"flyer1Loc", ",", " ", "flyer2Loc"}], "]"}]}], "]"}], ",",
+          "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", 
+          RowBox[{"stepDistance", "*", 
+           RowBox[{"EuclideanDistance", "[", 
+            RowBox[{"flyer1Loc", ",", " ", "flyer2Loc"}], "]"}]}], "]"}]}], 
+        "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+    "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.70298354865521*^9, 3.702983556254815*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "true", " ", "if", " ", "enemy", " ", "has", " ", 
+     "stepped", " ", "on", " ", "player"}], ",", " ", 
+    RowBox[{"false", " ", "otherwise"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"stepOnPlayer", "[", 
+    RowBox[{"playerLoc_", ",", "enemyLoc_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"px", " ", "=", " ", 
+        RowBox[{"playerLoc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"py", " ", "=", " ", 
+        RowBox[{"playerLoc", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ex", " ", "=", " ", 
+        RowBox[{"enemyLoc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ey", " ", "=", " ", 
+        RowBox[{"enemyLoc", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ey", "\[GreaterEqual]", " ", "py"}], "&&", 
+         RowBox[{"ey", "\[LessEqual]", " ", 
+          RowBox[{"py", "+", "1"}]}], "&&", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{"ex", "-", "px"}], "]"}], "\[LessEqual]", " ", "1"}], 
+          ")"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "True", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "False", "]"}]}], "\[IndentingNewLine]", "]"}],
+       ";"}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7029835575850983`*^9, 3.7029835704042664`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{
+    "returns", " ", "True", " ", "if", " ", "enemy", " ", "is", " ", 
+     "stepped", " ", "on"}], ",", " ", 
+    RowBox[{"False", " ", "otherwise"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"stepOnEnemy", "[", 
+    RowBox[{"playerLoc_", ",", " ", "enemyLoc_"}], "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"px", " ", "=", " ", 
+        RowBox[{"playerLoc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"py", " ", "=", " ", 
+        RowBox[{"playerLoc", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ex", " ", "=", " ", 
+        RowBox[{"enemyLoc", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ey", " ", "=", " ", 
+        RowBox[{"enemyLoc", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}]}], "\[IndentingNewLine]", "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"py", " ", "\[GreaterEqual]", " ", "ey"}], " ", "&&", " ", 
+         RowBox[{"py", " ", "<=", " ", 
+          RowBox[{"ey", " ", "+", " ", "1"}]}], " ", "&&", " ", 
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"Abs", "[", 
+            RowBox[{"px", " ", "-", " ", "ex"}], "]"}], " ", "\[LessEqual]", 
+           " ", "1"}], ")"}]}], " ", ",", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "True", "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "False", "]"}]}], "\[IndentingNewLine]", "]"}],
+       ";"}]}], "\[IndentingNewLine]", "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.702983571327677*^9, 3.702983578061081*^9}}]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1440, 800},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.1 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 23, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 152, 5, 204, "Title"],
+Cell[CellGroupData[{
+Cell[757, 31, 111, 1, 62, "Subchapter"],
+Cell[871, 34, 1360, 36, 131, "Input"],
+Cell[2234, 72, 961, 23, 80, "Input"],
+Cell[3198, 97, 1501, 39, 233, "Input"],
+Cell[4702, 138, 9330, 231, 488, "Input"],
+Cell[14035, 371, 87, 1, 46, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14159, 377, 128, 1, 62, "Subchapter"],
+Cell[14290, 380, 2745, 62, 216, "Input"],
+Cell[17038, 444, 2847, 69, 267, "Input"],
+Cell[19888, 515, 2984, 72, 284, "Input"],
+Cell[22875, 589, 3068, 73, 284, "Input"],
+Cell[25946, 664, 2966, 72, 267, "Input"],
+Cell[28915, 738, 2965, 72, 267, "Input"],
+Cell[31883, 812, 460, 11, 46, "Input"],
+Cell[32346, 825, 461, 11, 46, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32844, 841, 114, 1, 62, "Subchapter"],
+Cell[32961, 844, 763, 22, 46, "Input"],
+Cell[33727, 868, 208, 5, 28, "Input"],
+Cell[33938, 875, 608, 17, 97, "Input"],
+Cell[34549, 894, 58423, 1206, 4194, "Input"],
+Cell[92975, 2102, 474, 9, 80, "Input"],
+Cell[93452, 2113, 92, 1, 28, "Input"],
+Cell[93547, 2116, 92, 1, 28, "Input"],
+Cell[93642, 2119, 1088, 30, 97, "Input"],
+Cell[94733, 2151, 3059, 74, 267, "Input"],
+Cell[97795, 2227, 1677, 37, 250, "Input"],
+Cell[99475, 2266, 5158, 102, 250, "Input"],
+Cell[104636, 2370, 5719, 143, 250, "Input"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[110392, 2518, 106, 1, 62, "Subchapter"],
+Cell[110501, 2521, 1819, 43, 233, "Input"],
+Cell[112323, 2566, 1829, 43, 250, "Input"],
+Cell[114155, 2611, 1808, 43, 233, "Input"],
+Cell[115966, 2656, 1853, 43, 233, "Input"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
